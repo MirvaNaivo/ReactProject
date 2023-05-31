@@ -1,0 +1,59 @@
+{"dogs": [
+  {
+      "id": 1,
+      "name": "Waka",
+      "age": 2,
+      "breed": "mutt",
+      "gender": "female",
+      "info": "labrador and pitbull mix, very energetic"
+  },
+  {
+      "id": 2,
+      "name": "Ellis",
+      "age": 7,
+      "breed": "mutt",
+      "gender": "female",
+      "info": "rescue from Russia, shy"
+  },
+  {
+      "id": 3,
+      "name": "Owen",
+      "age": 16,
+      "breed": "brussels griffon",
+      "gender": "male",
+      "info": "looks like an alpaca-chicken hybrid"
+  },
+  {
+      "id": 4,
+      "name": "Carl",
+      "age": 3,
+      "breed": "bernese mountain dog",
+      "gender": "male",
+      "info": "allergic to salmon!"
+  },
+  {
+      "id": 5,
+      "name": "Charlie",
+      "age": 2,
+      "breed": "black shepherd",
+      "gender": "male",
+      "info": "in training, reactivity towards dogs"
+  },
+  {
+      "id": 6,
+      "name": "Lola",
+      "age": 4,
+      "breed": "staffordshire bull terrier",
+      "gender": "female",
+      "info": "the wiggliest butt!"
+  },
+  {
+      "id": 7,
+      "name": "Stanley",
+      "age": 1,
+      "breed": "great dane",
+      "gender": "male",
+      "info": "gentle giant"
+  }
+]
+}
