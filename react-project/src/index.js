@@ -20,9 +20,9 @@ root.render(
         <Route exact path="/" element={<Project/>} />
         <Route path="/schedule" element={<Schedule/>} />
         <Route path="/add" element={<AddDog/>} />
-        <Route path="/remove" element={Remove} />
-        <Route path="/edit" element={Edit} />
-        <Route path="/feedback" element={Feedback} />
+        <Route path="/remove" element={<Remove/>} />
+        <Route path="/edit" element={<Edit/>} />
+        <Route path="/feedback" element={<Feedback/>} />
       </Routes>
     </Router>
   </React.StrictMode>
