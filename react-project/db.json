@@ -55,5 +55,19 @@
       "gender": "male",
       "info": "gentle giant"
   }
+],
+"feedbacks": [
+    {
+        "id": 1,
+        "name": "Kelly",
+        "feedback": "I really like the app, but I do hope that there was an app for my phone"
+    }
+],
+"schedules": [
+    {
+        "dogId": 1,
+        "arrival": "",
+        "departure": ""
+    }
 ]
 }

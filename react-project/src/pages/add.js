@@ -14,6 +14,7 @@ const AddDog = () => {
     const [gender, setGender] = useState([]);
     const [info, setInfo] = useState([]);
     const [dog, setDog] = useState([]);
+    
 
     const saveButtonClicked = () => {
         let d = {
@@ -23,6 +24,11 @@ const AddDog = () => {
             gender: gender,
             info: info
         }
+
+        
+        for (let i = 1; i <= dog.row; i++) {
+            dog[i] = i;
+        };
 
         setDog([...dog, d]);
     }
@@ -58,13 +64,13 @@ const AddDog = () => {
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} />
                     <Form.Label>Age</Form.Label>
-                    <Form.Control type="text" value={name} onChange={(e) => setAge(e.target.value)} />
+                    <Form.Control type="text" value={age} onChange={(e) => setAge(e.target.value)} />
                     <Form.Label>Breed</Form.Label>
-                    <Form.Control type="text" value={name} onChange={(e) => setBreed(e.target.value)} />
+                    <Form.Control type="text" value={breed} onChange={(e) => setBreed(e.target.value)} />
                     <Form.Label>Gender</Form.Label>
-                    <Form.Control type="text" value={name} onChange={(e) => setGender(e.target.value)} />
+                    <Form.Control type="text" value={gender} onChange={(e) => setGender(e.target.value)} />
                     <Form.Label>Info</Form.Label>
-                    <Form.Control as="textarea" rows={3} value={name} onChange={(e) => setInfo(e.target.value)} />
+                    <Form.Control as="textarea" rows={3} value={info} onChange={(e) => setInfo(e.target.value)} />
                     <Button type="submit" variant="dark" onClick={(e) => saveButtonClicked()}>Save</Button>{' '}
                     <Button variant="dark" onClick={(e) => clearButtonClicked()}>Clear</Button>
                 </Form.Group>

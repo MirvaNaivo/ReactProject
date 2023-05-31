@@ -14,19 +14,19 @@ const Remove = () => {
     const [breed, setBreed] = useState([]);
     const [gender, setGender] = useState([]);
     const [info, setInfo] = useState([]);
+    const [query, setQuery] = useState([]);
     const [dog, setDog] = useState([]);
 
     useEffect(() => {
         const getDog = async () => {
             let response = await fetch("http://localhost:3030/dogs?");
-            setDog(await response.json());
+            let r = await response.json();
         }
 
         getDog();
     },
 
-        []);
-
+    []);
 
     return(
         <Navbar bg="light" expand="lg" sticky="top">

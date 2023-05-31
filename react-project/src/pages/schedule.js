@@ -10,6 +10,8 @@ import { useEffect, useState } from 'react';
 const Schedule = () => {
     const [schedule, setSchedule] = useState([]);
 
+    
+
     return(
         <Navbar bg="light" expand="lg" sticky="top">
         <Navbar.Brand href="#home">Doggy Daycare</Navbar.Brand>
