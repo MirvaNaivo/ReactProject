@@ -6,6 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useEffect, useState } from 'react';
+import Modal from 'react-bootstrap/Modal';
 
 const Edit = () => {
     const [name, setName] = useState([]);
@@ -15,6 +16,10 @@ const Edit = () => {
     const [info, setInfo] = useState([]);
     const [dog, setDog] = useState([]);
     const [dogs, setDogs] = useState([]);
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     useEffect(() => {
         const getDogs = async () => {
@@ -27,7 +32,7 @@ const Edit = () => {
 
         []);
 
-    const saveButtonClicked = () => {
+    const handleSubmit = () => {
         let d = {
             name: name,
             age: age,
@@ -36,12 +41,6 @@ const Edit = () => {
             info: info
         }
 
-
-        for (let i = 1; i <= dog.row; i++) {
-            dog[i] = i;
-        };
-
-        setDog([...dog, d]);
     }
 
     return (
@@ -66,8 +65,8 @@ const Edit = () => {
                 </Navbar.Collapse>
             </Navbar>
 
-            <Form>
-                <Form.Group className="mb-3" controlId="formAddDog">
+            <Form onSubmit={handleSubmit}>
+                <Form.Group className="mb-3" controlId="formEditDog">
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} />
                     <Form.Label>Age</Form.Label>
@@ -78,9 +77,21 @@ const Edit = () => {
                     <Form.Control type="text" value={gender} onChange={(e) => setGender(e.target.value)} />
                     <Form.Label>Info</Form.Label>
                     <Form.Control as="textarea" rows={3} value={info} onChange={(e) => setInfo(e.target.value)} />
-                    <Button type="submit" variant="dark" onClick={(e) => saveButtonClicked()}>Save</Button>
+                    <Button type="submit" variant="dark">Save</Button>
                 </Form.Group>
             </Form>
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Success!</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Dogs info edited successfully!</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="dark" onClick={handleClose}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
 
         </Container>
     )

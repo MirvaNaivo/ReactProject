@@ -5,18 +5,31 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { useEffect, useState } from 'react';
+import Modal from 'react-bootstrap/Modal';
+import { useState } from 'react';
 
 const AddDog = () => {
-    const [name, setName] = useState([]);
-    const [age, setAge] = useState([]);
-    const [breed, setBreed] = useState([]);
-    const [gender, setGender] = useState([]);
-    const [info, setInfo] = useState([]);
-    const [dog, setDog] = useState([]);
-    
+    const [name, setName] = useState("");
+    const [age, setAge] = useState("");
+    const [breed, setBreed] = useState("");
+    const [gender, setGender] = useState("");
+    const [info, setInfo] = useState("");
+    const [show, setShow] = useState(false);
 
-    const saveButtonClicked = () => {
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const clearForm = () => {
+        setName("");
+        setAge("");
+        setBreed("");
+        setGender("");
+        setInfo("");
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
         let d = {
             name: name,
             age: age,
@@ -25,16 +38,16 @@ const AddDog = () => {
             info: info
         }
 
-        
-        for (let i = 1; i <= dog.row; i++) {
-            dog[i] = i;
-        };
+        fetch("http://localhost:3030/dogs", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(d)
+        })
 
-        setDog([...dog, d]);
-    }
-
-    const clearButtonClicked = () => {
-
+        handleShow(true);
+        clearForm();
     }
 
     return (
@@ -59,7 +72,7 @@ const AddDog = () => {
                 </Navbar.Collapse>
             </Navbar>
 
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formAddDog">
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} />
@@ -71,10 +84,21 @@ const AddDog = () => {
                     <Form.Control type="text" value={gender} onChange={(e) => setGender(e.target.value)} />
                     <Form.Label>Info</Form.Label>
                     <Form.Control as="textarea" rows={3} value={info} onChange={(e) => setInfo(e.target.value)} />
-                    <Button type="submit" variant="dark" onClick={(e) => saveButtonClicked()}>Save</Button>{' '}
-                    <Button variant="dark" onClick={(e) => clearButtonClicked()}>Clear</Button>
+                    <Button type="submit" variant="dark">Save</Button>
                 </Form.Group>
             </Form>
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Success!</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>New dog added successfully!</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="dark" onClick={handleClose}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </Container>
     )
 }
