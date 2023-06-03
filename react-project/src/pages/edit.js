@@ -9,11 +9,12 @@ import { useEffect, useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 
 const Edit = () => {
-    const [name, setName] = useState([]);
-    const [age, setAge] = useState([]);
-    const [breed, setBreed] = useState([]);
-    const [gender, setGender] = useState([]);
-    const [info, setInfo] = useState([]);
+    const [id, setId] = useState("");
+    const [name, setName] = useState("");
+    const [age, setAge] = useState("");
+    const [breed, setBreed] = useState("");
+    const [gender, setGender] = useState("");
+    const [info, setInfo] = useState("");
     const [dog, setDog] = useState([]);
     const [dogs, setDogs] = useState([]);
     const [show, setShow] = useState(false);
@@ -21,9 +22,18 @@ const Edit = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const clearForm = () => {
+        setId("");
+        setName("");
+        setAge("");
+        setBreed("");
+        setGender("");
+        setInfo("");
+    }
+
     useEffect(() => {
         const getDogs = async () => {
-            let response = await fetch("http://localhost:3030/dogs?");
+            let response = await fetch("http://localhost:3030/dogs");
             setDogs(await response.json());
         }
 
@@ -32,8 +42,22 @@ const Edit = () => {
 
         []);
 
-    const handleSubmit = () => {
+    const getDog = (id) => {
+        console.log(id);
+        fetch("http://localhost:3030/dogs?id=" + id)
+        .then(res => {
+            return res.json()
+        })
+        .then(data => {
+            setDog(data)
+        })
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
         let d = {
+            id: id,
             name: name,
             age: age,
             breed: breed,
@@ -41,12 +65,22 @@ const Edit = () => {
             info: info
         }
 
+        fetch("http://localhost:3030/dogs", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(d)
+        })
+
+        handleShow(true);
+        clearForm();
     }
 
     return (
         <Container>
             <Navbar bg="light" expand="lg" sticky="top">
-                <Navbar.Brand href="#home">Doggy Daycare</Navbar.Brand>
+                <Navbar.Brand href="/">Doggy Daycare</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
@@ -66,17 +100,27 @@ const Edit = () => {
             </Navbar>
 
             <Form onSubmit={handleSubmit}>
+                <Form.Select onChange={(e) => getDog(e.target.value)}>
+                    <option>Choose a dog</option>
+                    {dogs.map((d, index) => {
+                        return <option key={index} value={d.id}>{d.name}</option>
+                    })}
+                </Form.Select>
                 <Form.Group className="mb-3" controlId="formEditDog">
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} />
-                    <Form.Label>Age</Form.Label>
-                    <Form.Control type="text" value={age} onChange={(e) => setAge(e.target.value)} />
-                    <Form.Label>Breed</Form.Label>
-                    <Form.Control type="text" value={breed} onChange={(e) => setBreed(e.target.value)} />
-                    <Form.Label>Gender</Form.Label>
-                    <Form.Control type="text" value={gender} onChange={(e) => setGender(e.target.value)} />
-                    <Form.Label>Info</Form.Label>
-                    <Form.Control as="textarea" rows={3} value={info} onChange={(e) => setInfo(e.target.value)} />
+                    {dog.map((item, i) => {
+                        return <div key={i}>
+                            <Form.Label>Name</Form.Label>
+                            <Form.Control type="text" key={1} value={item.name} onChange={(e) => setName(e.target.value)} />
+                            <Form.Label>Age</Form.Label>
+                            <Form.Control type="text" key={2} value={item.age} onChange={(e) => setAge(e.target.value)} />
+                            <Form.Label>Breed</Form.Label>
+                            <Form.Control type="text" key={3} value={item.breed} onChange={(e) => setBreed(e.target.value)} />
+                            <Form.Label>Gender</Form.Label>
+                            <Form.Control type="text" key={4} value={item.gender} onChange={(e) => setGender(e.target.value)} />
+                            <Form.Label>Info</Form.Label>
+                            <Form.Control as="textarea" rows={3} key={5} value={item.info} onChange={(e) => setInfo(e.target.value)} />
+                        </div>
+                    })}
                     <Button type="submit" variant="dark">Save</Button>
                 </Form.Group>
             </Form>

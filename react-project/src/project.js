@@ -25,7 +25,7 @@ const Project = () => {
     return (
         <Container>
             <Navbar bg="light" expand="lg" sticky="top">
-                <Navbar.Brand href="#home">Doggy Daycare</Navbar.Brand>
+                <Navbar.Brand href="/">Doggy Daycare</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">

@@ -83,7 +83,82 @@
   "schedules": [
     {
       "dogId": 1,
-      "time": 
+      "dayId": 1,
+      "timeId": 1
+    },
+    {
+      "dogId": 1,
+      "dayId": 3,
+      "timeId": 3
+    },
+    {
+      "dogId": 2,
+      "dayId": 7,
+      "timeId": 2
+    },
+    {
+      "dogId": 2,
+      "dayId": 3,
+      "timeId": 3
+    },
+    {
+      "dogId": 3,
+      "dayId": 5,
+      "timeId": 3
+    }
+  ],
+  "days": [
+    {
+      "dayId": 1,
+      "abbrevation": "Mon",
+      "day": "Monday" 
+    },
+    {
+      "dayId": 2,
+      "abbrevation": "Tue",
+      "day": "Tuesday" 
+    },
+    {
+      "dayId": 3,
+      "abbrevation": "Wed",
+      "day": "Wednesday" 
+    },
+    {
+      "dayId": 4,
+      "abbrevation": "Thu",
+      "day": "Thursday" 
+    },
+    {
+      "dayId": 5,
+      "abbrevation": "Fri",
+      "day": "Friday" 
+    },
+    {
+      "dayId": 6,
+      "abbrevation": "Sat",
+      "day": "Saturday" 
+    },
+    {
+      "dayId": 7,
+      "abbrevation": "Sun",
+      "day": "Sunday" 
+    }
+  ],
+  "times": [
+    {
+      "timeId": 1,
+      "time": "morning",
+      "hours": 4
+    },
+    {
+      "timeId": 2,
+      "time": "wholeDay",
+      "hours": 8
+    },
+    {
+      "timeId": 1,
+      "time": "afternoon",
+      "hours": 4
     }
   ]
 }

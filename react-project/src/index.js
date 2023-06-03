@@ -2,9 +2,8 @@ import React from 'react';
 import { createRoot } from "react-dom/client";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import './index.css';
 import  Project  from './project';
-import  {AddDog}  from './pages/add';
+import { AddDog } from './pages/add';
 import { Remove } from './pages/remove';
 import { Schedule } from './pages/schedule';
 import { Edit } from './pages/edit';
