@@ -1,3 +1,4 @@
+This project is still in progress, but you can run it in development mode.
 
 ### `npm start`
 
