@@ -44,7 +44,7 @@ const Project = () => {
                 </Navbar.Collapse>
             </Navbar>
 
-            <Container>
+            
                 <Row>
                     
                 </Row>
@@ -73,7 +73,7 @@ const Project = () => {
                         </tbody>
                     </Table>
                 </Row>
-            </Container>
+            
         </Container>
     )
 }

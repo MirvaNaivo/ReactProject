@@ -82,83 +82,34 @@
   ],
   "schedules": [
     {
+      "id": 1,
       "dogId": 1,
-      "dayId": 1,
-      "timeId": 1
+      "arrival": "2023-06-14T08:00:00",
+      "departure": "2023-06-14T16:00:00"
     },
     {
-      "dogId": 1,
-      "dayId": 3,
-      "timeId": 3
+      "id": 2,
+      "dogId": 5,
+      "arrival": "2023-06-15T08:00:00",
+      "departure": "2023-06-15T16:00:00"
     },
     {
+      "id": 3,
       "dogId": 2,
-      "dayId": 7,
-      "timeId": 2
+      "arrival": "2023-06-14T12:00:00",
+      "departure": "2023-06-14T16:00:00"
     },
     {
-      "dogId": 2,
-      "dayId": 3,
-      "timeId": 3
+      "id": 4,
+      "dogId": 7,
+      "arrival": "2023-06-15T12:00:00",
+      "departure": "2023-06-15T16:00:00"
     },
     {
-      "dogId": 3,
-      "dayId": 5,
-      "timeId": 3
-    }
-  ],
-  "days": [
-    {
-      "dayId": 1,
-      "abbrevation": "Mon",
-      "day": "Monday" 
-    },
-    {
-      "dayId": 2,
-      "abbrevation": "Tue",
-      "day": "Tuesday" 
-    },
-    {
-      "dayId": 3,
-      "abbrevation": "Wed",
-      "day": "Wednesday" 
-    },
-    {
-      "dayId": 4,
-      "abbrevation": "Thu",
-      "day": "Thursday" 
-    },
-    {
-      "dayId": 5,
-      "abbrevation": "Fri",
-      "day": "Friday" 
-    },
-    {
-      "dayId": 6,
-      "abbrevation": "Sat",
-      "day": "Saturday" 
-    },
-    {
-      "dayId": 7,
-      "abbrevation": "Sun",
-      "day": "Sunday" 
-    }
-  ],
-  "times": [
-    {
-      "timeId": 1,
-      "time": "morning",
-      "hours": 4
-    },
-    {
-      "timeId": 2,
-      "time": "wholeDay",
-      "hours": 8
-    },
-    {
-      "timeId": 1,
-      "time": "afternoon",
-      "hours": 4
+      "id": 5,
+      "dogId": 9,
+      "arrival": "2023-06-14T08:00:00",
+      "departure": "2023-06-14T12:00:00"
     }
   ]
 }
