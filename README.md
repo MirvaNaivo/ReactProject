@@ -1,3 +1,4 @@
+This project is still in progress.
 
 ### `npm start`
 
