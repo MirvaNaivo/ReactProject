@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This project is still in progress.
+=======
+This project is still in progress, but you can run it in development mode.
+>>>>>>> 760bce1519bd144b265cbb544e9b40c48cae7427
 
 ### `npm start`
 
